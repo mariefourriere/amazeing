@@ -6,17 +6,42 @@ main.classList.add('main')
 document.body.appendChild(main)
 
 
-const multiline = `***********.*
-*S.....**.*.T
-*****.....*.*
-*****.***.*.*
-*****.*****.*
-*****.*****.*
-*****.......*
-*****.*******
-*.........***
-*.******...**
-*....********`;
+
+
+
+// const multiline = `***********.*
+// *S.....**.*.T
+// *****.....*.*
+// *****.***.*.*
+// *****.*****.*
+// *****.*****.*
+// *****.......*
+// *****.*******
+// *.........***
+// *.******...**
+// *....********`;
+
+const multiline = 
+`**********************
+*..S.................*
+********************.*
+*....................*
+*.********************
+*...................T*`
+
+// const multiline = 
+// `********
+// ****S***
+// ****.***
+// ****.***
+// ****.***
+// *......*
+// *.****.*
+// *..***.*
+// *..***.*
+// **.*****
+// *T.*****
+// ********`
 
 //divide multiline in lines
 const lineArray = multiline.split("\n");
@@ -48,6 +73,10 @@ for (let i = 0; i <= lineArray.length - 1; i++) {
         } else if (characterDiv.innerHTML == "S") {
             characterDiv.className = "start";
             characterDiv.innerHTML = "";
+
+            
+            
+
         } else if (characterDiv.innerHTML == "T") {
             characterDiv.className = "end";
             characterDiv.innerHTML = "";
@@ -59,20 +88,23 @@ for (let i = 0; i <= lineArray.length - 1; i++) {
 
 }
 
-document.querySelector("#\\31  > div.tile.start");
+document.querySelector("#\\31  > div.start");
 
 
 let posX = 2;
 let posY = 1;
 
+
+
 let littleGuy = document.createElement('div');
 littleGuy.classList.add('littleGuy');
 
 document.querySelector("#\\31  > div.start").appendChild(littleGuy);
+document.querySelector("#\\31  > div.start")
 
 function congrats() {
     if(document.querySelector("#\\3" + posY + "> div:nth-child(" + posX + ")").classList.contains('end')) {
-        alert("congrats, you won!");
+        alert("thank you, you helped me find my flower!");
 }
 }
 
@@ -80,26 +112,26 @@ function move(e) {
     if (e.code == "ArrowRight") {
         posX++;
         if(document.querySelector("#\\3" + posY + "> div:nth-child(" + posX + ")").classList.contains("wall")){
-            alert("Oups, you cannot go through walls!");
+            
             posX--;
         }
     } else if(e.code == "ArrowLeft") {
         posX--;
         if (document.querySelector("#\\3" + posY + "> div:nth-child(" + posX + ")").classList.contains('wall')){
-            alert("Oups, you cannot go through walls!");
+            
             posX++;
         }
     } else if (e.code == "ArrowUp") {
         posY--;
         if (document.querySelector("#\\3" + posY + "> div:nth-child(" + posX + ")").classList.contains('wall')){
-            alert("Oups, you cannot go through walls!");
+            
             posY ++;
         } 
     } else if (e.code == "ArrowDown") {
         console.log ("ArrowDown")
         posY++;
         if (document.querySelector("#\\3" + posY + "> div:nth-child(" + posX + ")").classList.contains('wall')){
-            alert("Oups, you cannot go through walls!");
+            
             posY --;
         } 
     }

@@ -1,14 +1,13 @@
 body{
     background-image: url(images/bg.jpg);
     background-size: cover;
+    
 }
 
 main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    margin-left:20px;
-    margin-top: 20px;
+    align-items: center;
 }
 
 .tile {

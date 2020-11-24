@@ -1,8 +1,25 @@
-const multiline = `***********.**S.....**.*.T*****.....*.******.***.*.******.*****.******.*****.******.......******.********.........****.*****...****....********`
+const body = document.querySelector('body');
+body.classList.add('body')
+
+const multiline = `***********.*
+*S.....**.*.T
+*****.....*.*
+*****.***.*.*
+*****.*****.*
+*****.*****.*
+*****.......*
+*****.*******
+*.........***
+*.*****...***
+*....********`
+
+// console.log(multiline.split('\n'));
+console.log(multiline[0].split('\n'));
+
 
 for (let element of multiline){
     const eachDiv = document.createElement('div')
-    eachDiv.className = "layout"
+   
   
     document.body.appendChild(eachDiv)
     if (element === "*") {
@@ -19,25 +36,43 @@ for (let element of multiline){
 
 const littleGuy = document.createElement('div');
 littleGuy.className = "littleGuy"
-document.querySelector("body > div:nth-child(16)").appendChild(littleGuy)
+document.querySelector("body > div:nth-child(17)").appendChild(littleGuy)
 
-let posX = 16;
+let posX = 2;
+let posY = 1;
+
 
 document.body.addEventListener('keydown', function(e){
-    console.log(e.code)   
+    // console.log(e.code)   
     if(e.code ===  "ArrowRight"){
-        posX++
-        document.querySelector("body > div:nth-child("+posX+")").appendChild(littleGuy)
+        posX++;
+        if(document.querySelector("body" + posY + " > div:nth-child(" + posX +")").classList.contains('wall')){
+            alert("that's a wall");
+            posX--;
+        }
+        
         
     }if(e.code ===  "ArrowLeft"){
-        posX--
-        document.querySelector("body > div:nth-child("+posX+")").appendChild(littleGuy)
+        posX--;
+        if(document.querySelector("body" + posY +" > div:nth-child("+ posX +")").classList.contains('wall')){
+            alert("that's a wall");
+            posX++;  
+        }
+    }else if (e.code === "ArrowDown"){
+        posY++;
+        if(document.querySelector("body" + posY + "> div:nth-child("+ posY +")").classList.contains('wall')){
+            alert("that's a wall");
+            posY++;
+        }
+    }else if (e.code === "ArrowUp"){
+        posY--;
+        if(document.querySelector("body" + posY +" > div:nth-child("+ posY +")").classList.contains('wall')){
+            alert("that's a wall");
+            posY++;
+        }
+    
     }
-     if (e.code === "ArrowDown"){
-        posX+=13
-        document.querySelector("body > div:nth-child("+posX+")").appendChild(littleGuy)
-    }if (e.code === "ArrowUp"){
-        posX-=13
-        document.querySelector("body > div:nth-child("+posX+")").appendChild(littleGuy)
-    }
+
+    document.querySelector("body" + posY +" > div:nth-child("+ posY +")").appendChild(littleGuy)
 })
+

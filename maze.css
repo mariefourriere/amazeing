@@ -1,25 +1,33 @@
-body{
+main {
     display: flex;
-    flex-wrap: wrap;
-    width: 260px;
+    flex-direction: column;
 }
 
-.path{
+.tile {
+    display: flex;
+    height: 20px;
+    width: 20px;
+}
+.divLine {
+    display: flex;
+}
+
+.path {
     height: 20px;
     width: 20px;
     background-color: lightgreen;
     text-align: center;
-    
 }
 
-.wall{
+.wall {
     height: 20px;
     width: 20px;
     background-color: grey;
     text-align: center;
+   
 }
 
-.littleGuy{
+.littleGuy {
     height: 16px;
     width: 16px;
     margin: 2px;
@@ -28,20 +36,21 @@ body{
     text-align: center;
 }
 
-.start{
+.start {
     height: 20px;
     width: 20px;
     background-color: blue;
     text-align: center;
+    
 }
 
-.end{
+.end {
     height: 20px;
     width: 20px;
     background-color:rgb(17, 190, 243);
     text-align: center;
+    
 }
-.layout{
-    width: 20px;
-    text-align: center;
-}
+
+
+

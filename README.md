@@ -47,3 +47,6 @@ console.log(multiline[0].split('')) // ['l', 'i', 'n', 'e', '1']
 ```
 
 Something in the likes of `const mazeArray = maze.split('\n').split('')` would allow me to iterate over the maze using for-loops. ex: `mazeArray[1][3]
+
+## Sources
+Exercise part of my [BeCode](https://becode.org/) training 

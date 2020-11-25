@@ -22,15 +22,25 @@ const level1 =
 
 const level2 =
     `**********************
-*..S.................*
+*S...................*
 ********************.*
 *....................*
 *.********************
 *...................T*`
 
 const level3 =
+    `************
+*S........**
+**...***.***
+**.**....***
+*******.****
+**T.....****
+************
+`
+
+const level4 =
     `********
-****S***
+*S....**
 ****.***
 ****.***
 ****.***
@@ -42,16 +52,6 @@ const level3 =
 *T.*****
 ********`
 
-const level4 =
-    `************
-***S.....***
-**...***.***
-**.**....***
-*******.****
-**T.....****
-************
-`
-
 
 
 // generate the maze 
@@ -60,8 +60,8 @@ function generateMaze(maze) {
     const levelArray = maze.split('\n');
     let i = 0;
     let j = 0;
-    let x;
-    let y;
+    let x = 0;
+    let y = 0;
     for (let element of levelArray) {
 
         const divLine = document.createElement('div');
@@ -79,13 +79,15 @@ function generateMaze(maze) {
                 tile.className += ' path';
 
                 if (character === 'S') {
+                    const start = document.createElement('div');
+                    start.className = ' start'
                     const littleGuy = document.createElement('div');
-                    littleGuy.className = 'littleGuy';
+                    littleGuy.className = ' littleGuy';
                     tile.appendChild(littleGuy);
-
+                    tile.appendChild(start)
                     x = i % character.length;
                     y = j;
-                    console.log(i, j, x, y);
+
 
                 } else if (character === 'T') {
                     tile.className += ' end';
@@ -116,9 +118,6 @@ function generateMaze(maze) {
             y: y
         }
 
-        // console.log(newDest.x, newDest.y)
-        // console.log(x, y)
-
 
         if (e.key === "ArrowRight") {
             newDest.x++;
@@ -135,18 +134,16 @@ function generateMaze(maze) {
         if (line[newDest.y] !== undefined && line[newDest.y][newDest.x] !== undefined && !line[newDest.y][newDest.x].className.match('wall')) {
             let dest = line[newDest.y][newDest.x]
             dest.appendChild(littleGuy)
-            
+
             x = newDest.x
             y = newDest.y
             if (dest.className.match('end')) {
                 levelNumber++
-                seconds = 0
-                minutes = 0
                 if (mazes[levelNumber] !== undefined) {
                     alert('Thank you, you helped me find my flower!!!')
                     generateMaze(mazes[levelNumber])
                 } else {
-                    
+                    alert("Thank you so much, I hope to see you soon")
                 }
             }
         }

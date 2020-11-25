@@ -41,15 +41,14 @@ main {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: darkblue; 
+    
 }
 
 .start {
     height: 45px;
     width: 35px;
     background-color: darkblue; 
-    text-align: center;
-    
+    background-position: center;
 }
 
 .end {

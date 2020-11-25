@@ -1,6 +1,6 @@
 # amazeing
 
-Please find the maze on my github page [here]() . 
+Please find the maze on my github page [here](https://mariefourriere.github.io/amazeing/.) . 
 
 ## Introduction
 
